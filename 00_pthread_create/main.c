@@ -14,10 +14,17 @@
 #include<pthread.h>
 
 /*
-1. Create a pthread variable
-2. create a function for thread to execute
-3. allocate space for variables to pass into the create function 
-4. parent thread waits to join and then done
+Using pthread create to launch a child thread.
+Very simple example where pthread takes default attributes and returns nothing
+
+Pthread create needs the following
+a. A pthread variable
+b. The function to be executed by the thread (Callback function)
+c. arguments to be passed on to the thread.
+
+Remember
+1. The arguments passed to the thread should be on the heap or static variable
+
  */
 
 
@@ -38,7 +45,6 @@ void* my_thread_callable(void *arg){
   printf("Thread: %d, %d\n", m1->a, m1->b);
   return NULL;
 }
-
 
 
 int main(int argc, char *argv[]){
